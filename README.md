@@ -1,4 +1,4 @@
-# Pixel Adaptive Deep Unfolding Network with State Space Model for Image Derainin 
+# Pixel Adaptive Deep Unfolding Network with State Space Model for Image Deraining 
 
 Yao Xiao, and Youshen Xia
 
