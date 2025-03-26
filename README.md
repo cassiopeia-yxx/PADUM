@@ -137,5 +137,5 @@ If you are interested in this work, please consider citing:
 This code is based on the [Vim](https://github.com/hustvl/Vim)、[DRSformer](https://github.com/cschenxiang/DRSformer). Thanks for their awesome work.
 
 ## Contact
-If your submitted issue has not been noticed or there are further questions, please contact xiaoyao227192@163.com.
+If your submitted issue has not been noticed or there are further questions, please contact yxiao1998@outlook.com.
 
