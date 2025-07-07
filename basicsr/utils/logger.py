@@ -1,50 +1,33 @@
-"""Logging utilities for the PADUM project."""
+"""Logging utility for the PADUM project."""
 import logging
 import os
-import sys
 from datetime import datetime
 
-def setup_logger(name='PADUM', log_path=None, level=logging.INFO):
-    """Set up a logger with specified name and log file path.
+def get_root_logger(logger_name='PADUM', file_name=None):
+    """Get the root logger.
     
     Args:
-        name (str): Name of the logger.
-        log_path (str): Path to the log file. If None, logs will not be written to file.
-        level (int): Logging level (e.g., logging.INFO, logging.DEBUG).
+        logger_name (str): Name of the logger.
+        file_name (str, optional): If specified, save log to this file.
     
     Returns:
-        logging.Logger: Configured logger instance.
+        logging.Logger: Configured logger.
     """
-    logger = logging.getLogger(name)
-    logger.setLevel(level)
-    logger.propagate = False  # Prevent duplicate logging in root logger
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     
-    # Remove existing handlers to avoid duplicates
-    if logger.hasHandlers():
-        logger.handlers.clear()
-    
-    # Create console handler
-    ch = logging.StreamHandler(sys.stdout)
-    ch.setLevel(level)
-    ch_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    ch.setFormatter(ch_formatter)
+    # Console handler
+    ch = logging.StreamHandler()
+    ch.setFormatter(formatter)
     logger.addHandler(ch)
     
-    # Create file handler if log_path is provided
-    if log_path:
-        os.makedirs(os.path.dirname(log_path), exist_ok=True)
-        fh = logging.FileHandler(log_path)
-        fh.setLevel(level)
-        fh_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        fh.setFormatter(fh_formatter)
+    # File handler
+    if file_name:
+        log_dir = os.path.join('experiments', 'logs')
+        os.makedirs(log_dir, exist_ok=True)
+        fh = logging.FileHandler(os.path.join(log_dir, file_name))
+        fh.setFormatter(formatter)
         logger.addHandler(fh)
     
     return logger
-
-def get_root_logger():
-    """Get the root logger instance.
-    
-    Returns:
-        logging.Logger: Root logger instance.
-    """
-    return logging.getLogger('PADUM')
