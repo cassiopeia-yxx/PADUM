@@ -1,0 +1,89 @@
+# Options for Image Deraining
+---
+name: PADUM
+mode: train
+scale: 1
+
+# Dataset
+train_dataset:
+  name: Rain200L
+  type: DerainPairedDataset
+  dataroot_gt: datasets/train/Rain200L/gt
+  dataroot_lq: datasets/train/Rain200L/lq
+  io_backend:
+    type: disk
+
+test_dataset:
+  name: Rain200H
+  type: DerainPairedDataset
+  dataroot_gt: datasets/test/Rain200H/gt
+  dataroot_lq: datasets/test/Rain200H/lq
+  io_backend:
+    type: disk
+
+# Model
+model:
+  type: PADM
+  upscale: 1
+  num_in_ch: 3
+  num_out_ch: 3
+  num_feat: 64
+  num_blocks: 16
+  mamba_layers: [4, 8]
+  bias: true
+  weight_init_mean: 0.0
+  weight_init_std: 0.02
+
+# Training settings
+train:
+  epochs: 1000
+  batch_size: 16
+  lr: 1e-4
+  beta1: 0.9
+  beta2: 0.999
+  loss: L1
+  optimizer: AdamW
+  scheduler: CosineAnnealingLR
+  warmup_epochs: 5
+  clip_grad: 1.0
+
+# Evaluation settings
+eval:
+  metrics:
+    - PSNR
+    - SSIM
+  save_images: true
+  save_path: results/PADUM
+
+# Logging
+logger:
+  type: TensorBoardLogger
+  log_dir: experiments/tb_logger
+  print_freq: 100
+  save_checkpoint_freq: 50
+
+# Network training setup
+network_g:
+  type: PADM
+  depth: 12
+  embed_dim: 192
+  mlp_ratio: 2
+  drop_rate: 0.1
+  attn_drop_rate: 0.1
+  drop_path_rate: 0.1
+  patch_norm: true
+  use_checkpoint: false
+
+# Data augmentation
+augmentation:
+  flip: true
+  rotate: true
+  color_jitter: 0.1
+
+# Hardware settings
+hardware:
+  num_gpu: 4
+  dist: true
+  manual_seed: 0
+  deterministic: true
+  benchmark: false
