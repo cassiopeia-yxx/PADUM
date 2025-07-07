@@ -1,4 +1,4 @@
-# Pixel Adaptive Deep Unfolding Network with State Space Model for Image Deraining 
+# Pixel Adaptive Deep Unfolding Network with State Space Model for Image Deraining
 
 Yao Xiao, and Youshen Xia
 
@@ -7,17 +7,16 @@ Yao Xiao, and Youshen Xia
 Currently, only the pre-trained model weights and visual results are publicly available for demonstration purposes. Please stay tuned for updates!
 
 
-
 <!-- [Paper Download](https://openaccess.thecvf.com/content/CVPR2023/html/Chen_Learning_a_Sparse_Transformer_Network_for_Effective_Image_Deraining_CVPR_2023_paper.html) -->
 
-<!-- <hr />
+<!-- 
+<hr />
 
-> **Abstract:** *Transformers*
-<hr /> -->
+--> <!-- **Abstract:** *Transformers* -->
 
 <!-- ## Network Architecture
 
-<img src = "./figs/network.png"> -->
+<img src = "./figs/network.png" -->
 
 ## Datasets
 <table>
@@ -138,4 +137,3 @@ This code is based on the [Vim](https://github.com/hustvl/Vim)、[DRSformer](htt
 
 ## Contact
 If your submitted issue has not been noticed or there are further questions, please contact yxiao1998@outlook.com.
-
