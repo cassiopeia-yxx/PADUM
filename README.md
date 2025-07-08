@@ -156,7 +156,7 @@ If you are interested in this work, please consider citing:
 
     @article{PADMamba,
         author={Yao, Xiao and Youshen, Xia}, 
-        title={Pixel Adaptive Deep Unfolding Network with State Space Model for Image Deraining	},
+        title={Pixel Adaptive Deep Unfolding Network with State Space Model for Image Deraining},
         journal={Neural Networks},
         year={2025},
     }
