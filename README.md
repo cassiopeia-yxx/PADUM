@@ -1,11 +1,3 @@
-# Pixel Adaptive Deep Unfolding Network with State Space Model for Image Deraining 
-
-Yao Xiao, and Youshen Xia
-
-<hr />
-
-> **Abstract:** *Rain streaks   affects the visual quality and interfere with high-level vision tasks on rainy days.  Removing raindrops from  captured rainy images becomes  improtant in  computer vision applications. Recently, deep unfolding networks (DUNs) are shown their effectiveness on image deraining.  Yet,   there are two  issues that need to be further addressed : 1) Deep unfolding networks typically use convolutional neural networks (CNNs), which lack the ability to perceive global structures, thereby limiting the applicability of the network model; 2) Their gradient descent modules usually rely on a scalar step size, which limits the adaptability of the method to different input images. To address the two  issues,  we proposes a new image rain removal method based on a pixel adaptive deep unfolding network with state space models. The proposed network mainly consists of  both  the adaptive pixel-wise gradient descent (APGD) module and the stage fusion proximal mapping (SFPM) module. APGD module overcomes scalar step size inflexibility by adaptively adjusting the gradient step size for each pixel based on the previous stage features. SFPM module adopts a dual-branch architecture combining  CNNs  with state space models (SSMs) to  enhance the perception of both local and global structures.  Compared to Transformer-based models, SSM enables efficient long-range dependency modeling with linear complexity. In addition, we introduce a stage feature fusion with the Fourier transform mechanism to reduce information loss during the unfolding process, ensuring key features are effectively propagated.  Extensive experiments on multiple public datasets demonstrate that our method consistently outperforms state-of-the-art deraining methods in terms of  quantitative metrics and visual quality.*
-<hr />
 
 
 
@@ -150,16 +142,6 @@ See folder "evaluations/Evaluation_DID-Data_DDN-Data or Evalution_Rain200L_Rain2
 
 Some of the experimental results are based on the results collected by [DRSformer](https://github.com/cschenxiang/DRSformer), which is very comprehensive. Thanks for their awesome work.
 
-
-## Citation
-If you are interested in this work, please consider citing:
-
-    @article{PADMamba,
-        author={Yao, Xiao and Youshen, Xia}, 
-        title={Pixel Adaptive Deep Unfolding Network with State Space Model for Image Deraining},
-        journal={Neural Networks},
-        year={2025},
-    }
 
 ## Acknowledgment
 This code is based on the [Vim](https://github.com/hustvl/Vim)、[DRSformer](https://github.com/cschenxiang/DRSformer). Thanks for their awesome work.
